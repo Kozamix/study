@@ -8,7 +8,7 @@ def note_list(request):
 
 def note_detail(request, pk):
     note = get_object_or_404(Note, pk=pk)
-    return render(request, 'notes/note_detail.html', {'note': note})
+    return render(request, 'notes/note_detail.html', {'notes': note})
 
 def note_new(request):
     if request.method == "POST":

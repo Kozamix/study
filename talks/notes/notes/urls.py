@@ -1,5 +1,5 @@
 """
-URL configuration for note project.
+URL configuration for notes project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -19,10 +19,10 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    path('notes/<int:pk>', views.note_detail, name='note_detail'),
+    path('notes/new/', views.note_new, name='note_new'),
+    path('notes/<int:pk>/edit/', views.note_edit, name='note_edit'),
+    path('notes/<int:pk>/delite/', views.note_delite, name='note_delite'),
     path('', views.note_list, name='note_list'),
-    path('note/<int:pk>', views.note_detail, name='note_detail'),
-    path('note/new/', views.note_new, name='note_new'),
-    path('note/<int:pk>/edit/', views.note_edit, name='note_edit'),
-    path('note/<int:pk>/delite/', views.note_delite, name='note_delite'),
 ]
 
