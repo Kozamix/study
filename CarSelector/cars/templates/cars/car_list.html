@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Car List</h2>
+        <ul class="list-group">
+            {% for car in cars %}
+                <li class="list-group-item">
+                    <a href="{% url 'edit_car' car.id %}">{{ car.year }} {{ car.brand }} {{ car.model }}</a>
+                    {% if car.photo %}
+                        <img src="{{ car.photo.url }}" alt="{{ car.model }} Photo" style="max-width: 100px; max-height: 100px;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-primary mt-3" href="{% url 'add_car' %}">Add Car</a>
+    </div>
+</body>
+</html>
