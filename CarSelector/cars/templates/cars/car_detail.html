@@ -1,0 +1,33 @@
+<!-- cars/templates/cars/car_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car.brand }} {{ car.model }} Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>{{ car.brand }} {{ car.model }} Details</h2>
+        <p>Year: {{ car.year }}</p>
+        <p>Description: {{ car.description }}</p>
+        <!-- Додайте інші деталі, які ви хочете відобразити -->
+
+        <!-- Додайте зображення, якщо воно доступне -->
+    {% if car.photo and car.photo.url and car.photo|length %}
+    <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.brand }} {{ car.model }}">
+{% else %}
+    <p>No photo available</p>
+{% endif %}
+
+        <!-- Повернення на головну сторінку -->
+        <a class="btn btn-primary mt-3" href="{% url 'home' %}">Back to Car List</a>
+    </div>
+
+    <!-- Підключення скриптів Bootstrap (якщо потрібно) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
